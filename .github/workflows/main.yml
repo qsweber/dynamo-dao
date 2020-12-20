@@ -21,10 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     env:
-      $PYPI_USERNAME: ${{ secrets.$PYPI_USERNAME }}
-      $PYPI_PASSWORD: ${{ secrets.$PYPI_PASSWORD }}
-      $PYPI_TEST_USERNAME: ${{ secrets.$PYPI_TEST_USERNAME }}
-      $PYPI_TEST_PASSWORD: ${{ secrets.$PYPI_TEST_PASSWORD }}
+      PYPI_USERNAME: ${{ secrets.$PYPI_USERNAME }}
+      PYPI_PASSWORD: ${{ secrets.$PYPI_PASSWORD }}
+      PYPI_TEST_USERNAME: ${{ secrets.$PYPI_TEST_USERNAME }}
+      PYPI_TEST_PASSWORD: ${{ secrets.$PYPI_TEST_PASSWORD }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v1
