@@ -24,7 +24,7 @@ class ExampleDao(Dao[Example]):
     def convert_to_dynamo(self, var: Example) -> DynamoObject:
         return {"foo": var.foo, "bar": var.bar}
 
-    def convert_from_dynamo(self, var: DynamoObject) -> Examle:
+    def convert_from_dynamo(self, var: DynamoObject) -> Example:
         return Example(foo=str(var["foo"]), bar=int(var["bar"]))
 
 
