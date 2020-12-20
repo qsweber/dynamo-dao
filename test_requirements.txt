@@ -1,9 +1,11 @@
 black
 flake8
-lxml
+lxml # needed for mypy report
 ipython
 mypy
 pytest
 pytest-mock
 pytest-cov
 python-coveralls
+wheel
+twine
