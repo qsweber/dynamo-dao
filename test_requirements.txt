@@ -7,5 +7,3 @@ pytest
 pytest-mock
 pytest-cov
 python-coveralls
-wheel
-twine
