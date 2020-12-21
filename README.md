@@ -1,12 +1,23 @@
 # Dynamo Dao
 
-Library for interacting with DynamoDb tables.
+Typed library for interacting with DynamoDb tables.
 
 ## Installation
 
+Available on [PyPI](https://pypi.org/project/dynamo-dao/)
+
+```
 pip install dynamo-dao
+```
 
 ## Usage
+
+The following example code shows some basic usage of this package. Note that the `ExampleDao` must define 4 abstract properties:
+
+1. `table_name` - Name of the DynamoDb table resource (maps directly to what you'd see on the AWS console).
+2. `unique_key` - The list of keys that together uniquely define an entry in the table.
+3. `convert_to_dynamo` - A method which takes in the object and converts it to the entry in the DynamoDb table
+4. `convert_from_dynamo` - The opposite of `convert_to_dynamo`
 
 ```
 from typing import NamedTuple
@@ -37,3 +48,9 @@ result = example_dao.read_one("foo", "hi")
 
 assert example == result
 ```
+
+## Why use?
+
+The base dao is a [generic](https://mypy.readthedocs.io/en/stable/generics.html) object, which means child classes will benefit from type checking on functions like `read` and `create`.
+
+In the example above, the type of `result` is `Example`.

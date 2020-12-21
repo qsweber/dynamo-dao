@@ -4,7 +4,7 @@ from setuptools import setup  # type: ignore
 
 setup(
     name="dynamo-dao",
-    version="0.0.1",
+    version="0.0.2",
     description="Dynamo Dao",
     author="Quinn Weber",
     maintainer="Quinn Weber",
