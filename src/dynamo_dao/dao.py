@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 from typing import List, Optional, TypeVar, Generic
 
-from dynamo_dao.clients.dynamo import DynamoClient, DynamoObject, DynamoValue
+from dynamo_dao.dynamo import DynamoClient, DynamoObject, DynamoValue
 
 
 T = TypeVar("T")
@@ -32,7 +32,7 @@ class Dao(Generic[T], metaclass=ABCMeta):
     def create(self, item: T) -> None:
         dynamo_object = self.convert_to_dynamo(item)
 
-        return self.dynamo.create(self.table_name, dynamo_object)
+        self.dynamo.create(self.table_name, dynamo_object)
 
     def read(self, key: Optional[str], value: Optional[DynamoValue]) -> List[T]:
         raw = self.dynamo.read(self.table_name, key, value)
