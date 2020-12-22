@@ -4,11 +4,13 @@ from setuptools import setup  # type: ignore
 
 setup(
     name="dynamo-dao",
-    version="0.0.4",
+    version="0.0.5",
     description="Dynamo Dao",
     author="Quinn Weber",
+    author_email="quinn@quinnweber.com",
     maintainer="Quinn Weber",
     maintainer_email="quinn@quinnweber.com",
+    url="https://github.com/qsweber/dynamo-dao",
     license="MIT",
     long_description=(pathlib.Path(__file__).parent / "README.md").read_text(),
     long_description_content_type="text/markdown",

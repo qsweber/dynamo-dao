@@ -15,6 +15,7 @@
     "**/.tox": true,
     "**/.mypy_cache": true,
     "**/*.egg-info": true,
-    ".coverage": true
+    ".coverage": true,
+    ".mypy": true
   }
 }
