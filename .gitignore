@@ -1,3 +1,5 @@
 .mypy/*
 htmlcov/*
 .coverage
+build/*
+dist/*
