@@ -15,7 +15,10 @@
     "**/.tox": true,
     "**/.mypy_cache": true,
     "**/*.egg-info": true,
+    "htmlcov": true,
     ".coverage": true,
-    ".mypy": true
+    ".mypy": true,
+    "dist": true,
+    "build": true
   }
 }

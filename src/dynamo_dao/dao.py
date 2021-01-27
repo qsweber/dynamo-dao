@@ -9,7 +9,7 @@ T = TypeVar("T")
 
 class Dao(Generic[T], metaclass=ABCMeta):
     def __init__(self) -> None:
-        self.dynamo = DynamoClient()
+        self._dynamo = DynamoClient()
 
     @property
     @abstractmethod
@@ -32,10 +32,10 @@ class Dao(Generic[T], metaclass=ABCMeta):
     def create(self, item: T) -> None:
         dynamo_object = self.convert_to_dynamo(item)
 
-        self.dynamo.create(self.table_name, dynamo_object)
+        self._dynamo.create(self.table_name, dynamo_object)
 
     def read(self, key: Optional[str], value: Optional[DynamoValue]) -> List[T]:
-        raw = self.dynamo.read(self.table_name, key, value)
+        raw = self._dynamo.read(self.table_name, key, value)
 
         if not raw:
             return []
@@ -77,7 +77,7 @@ class Dao(Generic[T], metaclass=ABCMeta):
         updated_attributes: List[str] = []
         for key, value in updated_dynamo.items():
             if value != original_dyanmo[key]:
-                self.dynamo.update(self.table_name, unique_key, key, value)
+                self._dynamo.update(self.table_name, unique_key, key, value)
                 updated_attributes.append(key)
 
         return
